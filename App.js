@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View,ImageBackground } from 'react-native';
+import { StyleSheet, View,ImageBackground,SafeAreaView } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient'
 
 import MainScreen from './screens/MainScreen';
@@ -23,7 +23,9 @@ export default function App() {
   return (
     <LinearGradient colors={['#4e0329','#ddb52f']} style={styles.rootScreen}>
       <ImageBackground style={styles.rootScreen} imageStyle={styles.backgroundImage} source={require('./assets/images/background.jpg')} resizeMode='cover'>
-       {screen}
+      <SafeAreaView style={styles.rootScreen}>
+        {screen}
+      </SafeAreaView>
       </ImageBackground>
     </LinearGradient>
   ); 
