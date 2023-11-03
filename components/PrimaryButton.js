@@ -1,11 +1,11 @@
 import { StyleSheet,Pressable,Text,View } from "react-native";
 
 
-function PrimaryButton({children}){
+function PrimaryButton({children,onPress}){
 return (
     <View style={styles.outerContainer}>
         {/* here i use the destruction to get the prop pressed which it is boolean  */}
-        <Pressable style={({pressed})=> pressed ? [styles.innerContainer,styles.pressed] : styles.innerContainer} android_ripple={{color:'#640233'}}>
+        <Pressable onPress={onPress} style={({pressed})=> pressed ? [styles.innerContainer,styles.pressed] : styles.innerContainer} android_ripple={{color:'#640233'}}>
 
         <Text style={styles.buttonText}>{children}</Text> 
         </Pressable>
