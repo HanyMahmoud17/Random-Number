@@ -7,10 +7,14 @@ function MainScreen(){
     return (
         <View style={styles.inputContainer}>
             <TextInput style={styles.numberInput} maxLength={2} keyboardType="number-pad"/>
-            
-                <PrimaryButton>Reset</PrimaryButton>
-                <PrimaryButton>Confirm</PrimaryButton>
-           
+            <View style={styles.buttonsContainer}>
+                <View style={styles.buttonContainer}>
+                    <PrimaryButton>Reset</PrimaryButton>
+                </View>
+                <View style={styles.buttonContainer}>
+                    <PrimaryButton>Confirm</PrimaryButton>
+                </View>
+            </View>
         </View>
     )    
 
@@ -22,7 +26,7 @@ const styles = StyleSheet.create({
         marginTop:100,
         marginHorizontal:24,
         padding:16,
-        backgroundColor:'#72063c',
+        backgroundColor:'#3b021f',
         borderRadius:8,
         // this for andriod boxShadow
         elevation:20,
@@ -30,7 +34,9 @@ const styles = StyleSheet.create({
         shadowColor:'balck',
         shadowOffset:{width:0,height:2},
         shadowRadius:6,
-        shadowOpacity:0.25
+        shadowOpacity:0.25,
+        alignItems:'center',
+        justifyContent:'center'
     },
     numberInput:{
         height:50,
@@ -42,6 +48,12 @@ const styles = StyleSheet.create({
         color:'#ddb52f',
         textAlign:'center',
         marginVertical:8
+    },
+    buttonsContainer:{
+        flexDirection:'row'
+    },
+    buttonContainer:{
+        flex:1
     }
 
 })

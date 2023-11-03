@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden', //to hide any out effect
     },
     innerContainer:{
-        backgroundColor:'red',
+        backgroundColor:'#72063c',
         paddingVertical:8,
         paddingHorizontal:16,
         elevation:8,
