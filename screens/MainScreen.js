@@ -5,8 +5,10 @@ import { useState } from "react";
 import { Alert } from "react-native";
 
 
-function MainScreen(){
+function MainScreen({onPickedNumber}){
+
     const[enterdNumber,setEnterdNumber]=useState('')
+    
     function inputNumberHandler(enterdNumber){
         setEnterdNumber(enterdNumber);
     }
@@ -22,9 +24,9 @@ function MainScreen(){
             [{text:'Okay',style:'destructive',onPress:resetInputNumber}])
             return;
         }
+        // i use the function from gameScreen and 
+        onPickedNumber(chosenNumnber);
 
-        console.log('okkkkkkkk');
-        // if()
     }
 
     return (
