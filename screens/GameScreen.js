@@ -1,6 +1,6 @@
 import { View,Text,StyleSheet } from "react-native";
 import Title from "../components/ui/Title";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { Alert } from "react-native";
@@ -18,9 +18,16 @@ if(rndNum === exclude){
 let minNumber=1;
 let maxNumber=100;
 
-function GameScreen({userNumber}){
+function GameScreen({userNumber,onGameOver}){
     const initialGuess=generateRandomNumner(minNumber,maxNumber,userNumber)
     const[currentGuess,setCurrentGuess]=useState(initialGuess)
+
+    // to check if game is over or not
+    useEffect(()=>{
+        if(currentGuess ==  userNumber){
+            onGameOver();
+        }
+    },[currentGuess,userNumber,onGameOver])
 
     function nextGuessNumber(direction){
         if((direction==='lower'&& currentGuess < userNumber) || (direction==='higher'&& currentGuess > userNumber)){
