@@ -3,6 +3,7 @@ import { TextInput ,View,StyleSheet} from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 import { useState } from "react";
 import { Alert } from "react-native";
+import Colors from "../constants/Colors";
 
 
 function MainScreen({onPickedNumber}){
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
         marginTop:100,
         marginHorizontal:24,
         padding:16,
-        backgroundColor:'#3b021f',
+        backgroundColor:Colors.primary800,
         borderRadius:8,
         // this for andriod boxShadow
         elevation:20,
@@ -66,11 +67,11 @@ const styles = StyleSheet.create({
     numberInput:{
         height:50,
         width:50,
-        borderBottomColor:'#ddb52f',
+        borderBottomColor:Colors.accent500,
         borderBottomWidth:2,
         fontWeight:'bold',
         fontSize:32,
-        color:'#ddb52f',
+        color:Colors.accent500,
         textAlign:'center',
         marginVertical:8
     },
