@@ -14,7 +14,9 @@ export default InstructionText;
 const styles = StyleSheet.create({
     instructorText:{
         fontSize:24,
-        color:Colors.accent500
+        color:Colors.accent500,
+        fontFamily:'open-sans',
+
     }
 
 })
