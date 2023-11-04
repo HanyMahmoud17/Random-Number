@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { Alert } from "react-native";
+import Card from "../components/ui/Card";
+import InstructionText from "../components/ui/instructionText";
 
 function generateRandomNumner(max,min, exclude){
     const rndNum=Math.floor(Math.random() * (max-min) ) + min ;
@@ -49,13 +51,19 @@ return (
     <View style={styles.mainContainer}>
         <Title>Opponent's Guess</Title>
         <NumberContainer>{currentGuess}</NumberContainer>
-        <View>
-            <Text>Higher or Lower ? </Text>
-            <View>
+        <Card>
+            <InstructionText>Higher or Lower ? </InstructionText>
+            <View style={styles.buttonsContainer}>
+                <View style={styles.buttonContainer}>
+
                 <PrimaryButton onPress={nextGuessNumber.bind(this,'higher')}>+</PrimaryButton>
+                </View>
+                <View style={styles.buttonContainer}>
+
                 <PrimaryButton onPress={nextGuessNumber.bind(this,'lower')}>-</PrimaryButton>
+                </View>
             </View>
-        </View>
+        </Card>
     </View>
 )
 }
@@ -68,5 +76,11 @@ const styles = StyleSheet.create({
         paddingHorizontal:24
         // padding:55
     },
-
+    buttonsContainer:{
+        flexDirection:'row',
+        marginTop:8
+    },
+    buttonContainer:{
+        flex:1
+    },
   });
