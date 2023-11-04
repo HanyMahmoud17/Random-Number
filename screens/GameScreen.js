@@ -6,6 +6,7 @@ import PrimaryButton from "../components/ui/PrimaryButton";
 import { Alert } from "react-native";
 import Card from "../components/ui/Card";
 import InstructionText from "../components/ui/instructionText";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 function generateRandomNumner(max,min, exclude){
     const rndNum=Math.floor(Math.random() * (max-min) ) + min ;
@@ -56,11 +57,15 @@ return (
             <View style={styles.buttonsContainer}>
                 <View style={styles.buttonContainer}>
 
-                <PrimaryButton onPress={nextGuessNumber.bind(this,'higher')}>+</PrimaryButton>
+                <PrimaryButton onPress={nextGuessNumber.bind(this,'higher')}>
+                     <Ionicons name="add-outline" size={24} color="white" />
+                </PrimaryButton>
                 </View>
                 <View style={styles.buttonContainer}>
 
-                <PrimaryButton onPress={nextGuessNumber.bind(this,'lower')}>-</PrimaryButton>
+                <PrimaryButton onPress={nextGuessNumber.bind(this,'lower')}>
+                <Ionicons name="remove" size={24} color="white" />
+                </PrimaryButton>
                 </View>
             </View>
         </Card>
