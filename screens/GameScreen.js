@@ -22,7 +22,7 @@ let minNumber=1;
 let maxNumber=100;
 
 function GameScreen({userNumber,onGameOver}){
-    const initialGuess=generateRandomNumner(minNumber,maxNumber,userNumber)
+    const initialGuess=generateRandomNumner(1,100,userNumber)
     const[currentGuess,setCurrentGuess]=useState(initialGuess)
 
     // to check if game is over or not
