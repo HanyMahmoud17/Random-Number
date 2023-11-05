@@ -4,7 +4,7 @@ import Colors from "../../constants/Colors";
 
 function InstructionText({children}){
 return (
-    <Text style={styles.instructorText}>{children}</Text>
+    <Text style={styles.textStyle}>{children}</Text>
 )
 
 }
@@ -12,7 +12,7 @@ return (
 export default InstructionText;
 
 const styles = StyleSheet.create({
-    instructorText:{
+    textStyle:{
         fontSize:24,
         color:Colors.accent500,
         fontFamily:'open-sans',

@@ -1,12 +1,11 @@
 import { TextInput ,View,StyleSheet, Text} from "react-native";
-// import {  } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { useState } from "react";
 import { Alert } from "react-native";
 import Colors from "../constants/Colors";
 import Title from "../components/ui/Title";
 import Card from "../components/ui/Card";
-import InstructionText from "../components/ui/instructionText";
+import InstructionText from "../components/ui/InstructionText";
 
 
 function MainScreen({onPickedNumber}){

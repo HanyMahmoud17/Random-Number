@@ -5,7 +5,8 @@ import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { Alert } from "react-native";
 import Card from "../components/ui/Card";
-import InstructionText from "../components/ui/instructionText";
+// import InstructionText from "../components/ui/instructionText";
+import InstructionText from "../components/ui/InstructionText";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 function generateRandomNumner(max,min, exclude){
@@ -31,6 +32,12 @@ function GameScreen({userNumber,onGameOver}){
             onGameOver();
         }
     },[currentGuess,userNumber,onGameOver])
+
+    // this i would not render unless the component had been rendered because the array of dependances is empty
+    useEffect(()=>{
+        minNumber=1,
+        maxNumber=100
+    },[])
 
     function nextGuessNumber(direction){
         if((direction==='lower'&& currentGuess < userNumber) || (direction==='higher'&& currentGuess > userNumber)){

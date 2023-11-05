@@ -13,6 +13,7 @@ export default function App() {
 
   const[userNumber,setUserNumber]=useState();
   const[gameIsOver,setGameIsOver]=useState(true);
+  const[numberOfRounded,setNumberOfRounded]=useState(0);
 
   const [fontsLoaded] = useFonts({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
@@ -32,6 +33,11 @@ export default function App() {
     setGameIsOver(true)
   }
 
+  function startNewGame(){
+    setUserNumber(null)
+    setNumberOfRounded(0)
+  }
+
   let screen=<MainScreen onPickedNumber={pickedNumberHandler}/>
 
   
@@ -40,7 +46,7 @@ export default function App() {
   }
 
   if(gameIsOver && userNumber){
-    screen= <GameOverScreen />
+    screen= <GameOverScreen userNumber={userNumber} numberOfRounded={numberOfRounded} startNewGame={startNewGame} />
   }
 
   // console.log(screen);
