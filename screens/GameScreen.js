@@ -8,6 +8,7 @@ import Card from "../components/ui/Card";
 // import InstructionText from "../components/ui/instructionText";
 import InstructionText from "../components/ui/InstructionText";
 import Ionicons from '@expo/vector-icons/Ionicons';
+import GuessLogItem from "../components/game/GuessLogItem";
 
 function generateRandomNumner(max,min, exclude){
     const rndNum=Math.floor(Math.random() * (max-min) ) + min ;
@@ -80,7 +81,7 @@ return (
         </Card>
         <View>
             {/* {guessRounds.map((round)=> <Text key={round}>{round}</Text> )} */}
-            <FlatList data={guessRounds} renderItem={({item})=> <Text>{item}</Text>} keyExtractor={(item)=> item}/>
+            <FlatList data={guessRounds} renderItem={(itemData)=> <GuessLogItem roundNumber={itemData.index} guess={itemData.item}/>} keyExtractor={(item)=> item}/>
         </View>
     </View>
 )
