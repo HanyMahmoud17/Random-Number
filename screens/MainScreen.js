@@ -1,4 +1,4 @@
-import { TextInput, View, StyleSheet, Text } from "react-native";
+import { TextInput, View, StyleSheet, Text, useWindowDimensions,KeyboardAvoidingView, ScrollView } from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { useState } from "react";
 import { Alert } from "react-native";
@@ -9,6 +9,8 @@ import InstructionText from "../components/ui/InstructionText";
 
 function MainScreen({ onPickedNumber }) {
   const [enterdNumber, setEnterdNumber] = useState("");
+
+  const {width,height} =useWindowDimensions();
 
   function inputNumberHandler(enterdNumber) {
     setEnterdNumber(enterdNumber);
@@ -30,8 +32,12 @@ function MainScreen({ onPickedNumber }) {
     onPickedNumber(chosenNumnber);
   }
 
+  const marginTopDistance=height < 380 ? 30 : 100; 
+
   return (
-    <View style={styles.rootContainer}>
+    <ScrollView style={styles.screen}>
+    <KeyboardAvoidingView style={styles.screen} behavior="position">
+    <View style={[styles.rootContainer,{marginTop:marginTopDistance}]}>
       <Title>Guess My Number</Title>
       <Card>
         <InstructionText>Enter a number</InstructionText>
@@ -52,13 +58,18 @@ function MainScreen({ onPickedNumber }) {
         </View>
       </Card>
     </View>
+    </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  screen:{
+    flex:1
+  },
   rootContainer: {
     flex: 1,
-    marginTop: 100,
+    // marginTop: 100,
     alignItems: "center",
   },
   numberInput: {
@@ -70,7 +81,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
     color: Colors.accent500,
     textAlign: "center",
-    marginVertical: 8,
+    marginVertical: 16,
+    // marginTop
   },
   buttonsContainer: {
     flexDirection: "row",

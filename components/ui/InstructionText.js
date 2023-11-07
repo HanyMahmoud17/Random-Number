@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         fontSize:24,
         color:Colors.accent500,
         fontFamily:'open-sans',
-
+    
     }
 
 })
